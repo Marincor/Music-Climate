@@ -1,8 +1,115 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap");
 
-.box {
-
-
+@media screen and (min-width: 0px) {
+  .box {
+    display: flex;
     width: 100vw;
     height: auto;
-   
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .boxClimateSearch {
+    border-radius: 1rem;
+    background-color: lightblue;
+    min-width: 15rem;
+    width: auto;
+    height: auto;
+    margin-top: 8rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: "Poppins", sans-serif;
+  }
+
+  .search {
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+    width: 15rem;
+    height: 2rem;
+    outline: none;
+    border: 1px solid black;
+    border-radius: 1rem;
+    margin: 1rem;
+    cursor: pointer;
+  }
+
+  .search:focus {
+    background-color: rgb(238, 232, 165);
+    color: black;
+    font-weight: bold;
+  }
+
+  .climate {
+    display: flex;
+    flex-direction: column;
+    min-width: 15rem;
+    width: auto;
+    height: auto;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .city {
+    height: auto;
+    padding: 1rem;
+    font-size: 1.5rem;
+  }
+
+  .country {
+    height: auto;
+    padding: 1rem;
+    font-size: 1rem;
+  }
+
+  .text {
+    height: auto;
+    padding: 0.5rem;
+    font-size: 1rem;
+  }
+
+  .celsius {
+    height: auto;
+    padding: 1rem;
+    font-size: 2.5rem;
+  }
+
+  .musicBox {
+    border-radius: 1rem;
+    margin: 2rem 0rem 2rem 0rem;
+    background-color: darkgray;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+
+@media screen and (min-width: 656px) {
+  .musicBox {
+    margin: 8rem 0rem 0rem 0rem;
+
+  }
+
+}
+
+@media screen and (min-width: 1024px) {
+
+  .box {
+    display: flex;
+    width: 100vw;
+    height: auto;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .musicBox {
+    margin: 8rem 0rem 0rem 2rem;
+
+  }
 }

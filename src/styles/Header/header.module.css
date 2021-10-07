@@ -2,6 +2,7 @@
 
 .header {
 
+    position: fixed;
     width: 100vw;
     height: auto;
     background-color: rgb(238, 161, 20);
@@ -16,6 +17,7 @@
     font-size: 2rem;
     font-weight:bold;
     margin: 1rem;
+    padding: 0.5rem;
 }
 
 .logo {
