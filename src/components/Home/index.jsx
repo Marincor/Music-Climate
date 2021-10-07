@@ -1,18 +1,10 @@
-import styles from "../../styles/Home/Home.module.css";
-import Climate from "./Climate";
-import MusicList from "./MusicList";
-import SearchBar from "./SearchBar";
+import { useContext, useEffect } from "react";
+import { MusicListContext } from "../../contexts/MusicList";
+import changeBackground from "../functions/Background/changeBg";
+
 
 export default function Weather() {
+  const { genre } = useContext(MusicListContext);
 
-  
-  return (
-    <div className={styles.box} style={{backgroundColor:"red"}} >
-      <div className={styles.boxClimateSearch}>
-        <SearchBar />
-        <Climate />
-      </div>
-      <MusicList />
-    </div>
-  );
+  return changeBackground(genre);
 }

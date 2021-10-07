@@ -9,7 +9,7 @@ import { Typography } from "@mui/material";
 import { useContext, useEffect } from "react";
 import { MusicListContext } from "../../../../contexts/MusicList";
 import { WeatherContext } from "../../../../contexts/Weather";
-import changeGenre from "../../../functions/changeGenre";
+import changeGenre from "../../../functions/Genre/changeGenre";
 
 function createData(name, calories, fat, carbs, protein) {
   return { name, calories, fat, carbs, protein };
