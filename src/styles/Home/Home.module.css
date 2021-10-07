@@ -88,17 +88,18 @@
   }
 }
 
-
 @media screen and (min-width: 656px) {
-  .musicBox {
-    margin: 8rem 0rem 0rem 0rem;
-
+  .box {
+    padding-bottom: 10rem;
   }
 
+  .musicBox {
+    margin: 2rem 0rem 0rem 0rem;
+    transform: translateY(8rem);
+  }
 }
 
 @media screen and (min-width: 1024px) {
-
   .box {
     display: flex;
     width: 100vw;
@@ -109,7 +110,6 @@
   }
 
   .musicBox {
-    margin: 8rem 0rem 0rem 2rem;
-
+    margin: 5rem 0rem 2rem 2rem;
   }
 }

@@ -7,8 +7,10 @@ function MyApp({ Component, pageProps }) {
   return (
     <SearchBarProvider>
       <WeatherProvider>
-        <MusicListProvider />
+        <MusicListProvider> 
+
         <Component {...pageProps} />
+        </MusicListProvider>
       </WeatherProvider>
     </SearchBarProvider>
   );

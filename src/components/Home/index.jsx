@@ -4,8 +4,10 @@ import MusicList from "./MusicList";
 import SearchBar from "./SearchBar";
 
 export default function Weather() {
+
+  
   return (
-    <div className={styles.box}>
+    <div className={styles.box} style={{backgroundColor:"red"}} >
       <div className={styles.boxClimateSearch}>
         <SearchBar />
         <Climate />

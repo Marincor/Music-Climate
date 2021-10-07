@@ -7,7 +7,7 @@ import currentIcon  from './icon'
 
 export default function Climate() {
 
-    const {currentWeather, currentCity} = useContext(WeatherContext)
+    const {currentWeather} = useContext(WeatherContext)
     const condition = currentWeather?.condition;
 
  
