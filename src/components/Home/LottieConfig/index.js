@@ -1,6 +1,7 @@
 import animationLoading from '../../../../public/assets/lotties/loadingBars.json';
-import animationcities from '../../../../public/assets/lotties/cities.json'
-import animationmusic from '../../../../public/assets/lotties/music.json'
+import animationCities from '../../../../public/assets/lotties/cities.json'
+import animationMusic from '../../../../public/assets/lotties/music.json'
+import animationGit from '../../../../public/assets/lotties/git.json'
 
 
 export  const defaultOptions = {
@@ -16,7 +17,7 @@ export  const defaultOptions = {
 export  const defaultOptions2 = {
   loop: true,
   autoplay: true,
-  animationData: animationcities,
+  animationData: animationCities,
   rendererSettings: {
     preserveAspectRatio: "xMidYMid slice"
   }
@@ -26,7 +27,17 @@ export  const defaultOptions2 = {
 export  const defaultOption3 = {
   loop: true,
   autoplay: true,
-  animationData: animationmusic,
+  animationData: animationMusic,
+  rendererSettings: {
+    preserveAspectRatio: "xMidYMid slice"
+  }
+};
+
+
+export  const defaultOption4 = {
+  loop: true,
+  autoplay: true,
+  animationData: animationGit,
   rendererSettings: {
     preserveAspectRatio: "xMidYMid slice"
   }

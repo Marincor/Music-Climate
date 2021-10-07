@@ -4,6 +4,7 @@ import changeBackground from "../functions/Background/changeBg";
 import Lottie from "react-lottie";
 import {
   defaultOption3,
+  defaultOption4,
   defaultOptions,
   defaultOptions2,
 } from "./LottieConfig";
@@ -27,9 +28,16 @@ export default function Weather() {
     }, 8000);
 
     setTimeout(() => {
-      setLoading(false);
+      setLoading("git");
     }, 13000);
+
+    setTimeout(() => {
+      setLoading(false);
+    }, 18000);
+
+
   }, []);
+  
 
   function renderContent() {
     if (loading === true) {
@@ -57,6 +65,17 @@ export default function Weather() {
           <h2 className={styles.loadText}>
             Based on the temperature of the chosen city we will suggest a
             personalized music list for you. Enjoy!
+          </h2>
+        </div>
+      );
+    }
+
+    if (loading === "git") {
+      return (
+        <div className={styles.boxLottie}>
+          <Lottie options={defaultOption4} height={300} width={400} />
+          <h2 className={styles.loadText}>
+            Access my github for more, in: https://github.com/marincor
           </h2>
         </div>
       );
