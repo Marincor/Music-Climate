@@ -5,6 +5,7 @@ import { WeatherContext } from "../../../contexts/Weather";
 import styles from "../../../styles/Home/Home.module.css";
 import TableList from "./Table";
 
+
 export default function MusicList() {
   const { currentWeather } = useContext(WeatherContext);
   const { musicList, genre, savedMusicList, setSavedMusicList } =
@@ -34,6 +35,14 @@ export default function MusicList() {
         <Button variant="contained" color="primary" onClick={getCurrentList}>
           Save list
         </Button>
+        {""} {" - "}
+        <> 
+        <a className={styles.link} href="/list">
+        <Button variant="contained" color="inherit" >
+          go the list ⮡ 
+        </Button>
+        </a>
+        </>
       </div>
     </div>
   );

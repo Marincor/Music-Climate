@@ -1,45 +1,40 @@
-import PropTypes from 'prop-types';
-import Box from '@mui/material/Box';
-import Collapse from '@mui/material/Collapse';
-import IconButton from '@mui/material/IconButton';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Typography from '@mui/material/Typography';
-import Paper from '@mui/material/Paper';
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
-import { useContext, useEffect, useState } from 'react';
-import { MusicListContext } from '../../contexts/MusicList';
+import PropTypes from "prop-types";
+import Box from "@mui/material/Box";
+import Collapse from "@mui/material/Collapse";
+import IconButton from "@mui/material/IconButton";
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
+import TableCell from "@mui/material/TableCell";
+import TableContainer from "@mui/material/TableContainer";
+import TableHead from "@mui/material/TableHead";
+import TableRow from "@mui/material/TableRow";
+import Typography from "@mui/material/Typography";
+import Paper from "@mui/material/Paper";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
+import { useContext, useEffect, useState } from "react";
+import { MusicListContext } from "../../contexts/MusicList";
 
-function createData(date, category) {
+function createData(date, category, city, temperature) {
+  const { savedMusicList } = useContext(MusicListContext);
 
+  const arrList = [];
 
+  function getList() {
+    savedMusicList.map((item) => {
+      arrList.push(item.list);
+    });
+  }
 
-    const {savedMusicList} = useContext(MusicListContext)
-
-    console.log(savedMusicList)
-
-
+  getList();
 
   return {
     date,
     category,
-    history: [
-      {
-        date: '2020-01-05',
-        customerId: '11091700',
-        amount: 3,
-      },
-      {
-        date: '2020-01-02',
-        customerId: 'Anonymous',
-        amount: 1,
-      },
-    ],
+    city,
+    temperature,
+
+    history: [arrList],
   };
 }
 
@@ -47,11 +42,28 @@ function Row(props) {
   const { row } = props;
   const [open, setOpen] = useState(false);
 
+  console.log(row.history);
 
+  function renderTable() {
+    return row.history?.map((array) =>
+      array?.map((arrays) => {
+        return arrays.map((item) => {
+          return (
+            <TableRow key={item.artist.name}>
+              <TableCell component="th" scope="row">
+                {item.artist.name}
+              </TableCell>
+              <TableCell>{item.name}</TableCell>
+            </TableRow>
+          );
+        });
+      })
+    );
+  }
 
   return (
     <>
-      <TableRow sx={{ '& > *': { borderBottom: 'unset' } }}>
+      <TableRow sx={{ "& > *": { borderBottom: "unset" } }}>
         <TableCell>
           <IconButton
             aria-label="expand row"
@@ -65,6 +77,9 @@ function Row(props) {
           {row.date}
         </TableCell>
         <TableCell align="right">{row.category}</TableCell>
+        <TableCell align="right">{row.city}</TableCell>
+        <TableCell align="center">{row.temperature} °C</TableCell>
+        <button>x</button>
       </TableRow>
       <TableRow>
         <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
@@ -78,24 +93,9 @@ function Row(props) {
                   <TableRow>
                     <TableCell>Artist</TableCell>
                     <TableCell>Music</TableCell>
-                    <TableCell align="right">Genre</TableCell>
-                    <TableCell align="right">Action</TableCell>
                   </TableRow>
                 </TableHead>
-                <TableBody>
-                  {row.history?.map((historyRow) => (
-                    <TableRow key={historyRow.date}>
-                      <TableCell component="th" scope="row">
-                        {historyRow.date}
-                      </TableCell>
-                      <TableCell>{historyRow.customerId}</TableCell>
-                      <TableCell align="right">{historyRow.amount}</TableCell>
-                      <TableCell align="right">
-                        teste
-                      </TableCell>
-                    </TableRow>
-                  ))}
-                </TableBody>
+                <TableBody>{renderTable()}</TableBody>
               </Table>
             </Box>
           </Collapse>
@@ -115,7 +115,7 @@ Row.propTypes = {
         amount: PropTypes.number.isRequired,
         customerId: PropTypes.string.isRequired,
         date: PropTypes.string.isRequired,
-      }),
+      })
     ).isRequired,
     name: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
@@ -123,56 +123,38 @@ Row.propTypes = {
   }).isRequired,
 };
 
-
-
 export default function TableList() {
-    const [currentRows, setCurrentRows] = useState([])
+  const [currentRows, setCurrentRows] = useState([]);
 
-    const {savedMusicList} = useContext(MusicListContext)
-  useEffect(()=>{
-  
-      const arrRows = currentRows || [];
-      savedMusicList.map((item) =>{
-  
-          const objRows = {
-  
-              date: item.date,
-              category: item.category
-          }
-  
-          arrRows.push(objRows)
-  
-      })
-    
-      setCurrentRows(arrRows)
+  const { savedMusicList } = useContext(MusicListContext);
+  useEffect(() => {
+    const arrRows = currentRows || [];
+    savedMusicList.map((item) => {
+      const objRows = {
+        date: item.date,
+        category: item.category,
+        city: item.city,
+        temperature: item.temperature,
+      };
 
-     
-  
-  },[savedMusicList])
+      arrRows.push(objRows);
+    });
 
+    setCurrentRows(arrRows);
+  }, [savedMusicList]);
 
   function createRows() {
- 
-      const arrRows =  []
+    const arrRows = [];
 
-    currentRows.map((item) =>{
+    currentRows.map((item) => {
+      arrRows.push(
+        createData(item.date, item.category, item.city, item.temperature)
+      );
+    });
 
-        
-        arrRows.push(createData(item.date, item.category))
-    
-
-
-    })
-
-    return arrRows
+    return arrRows;
   }
 
-
-
-
- 
-
- console.log(currentRows)
   return (
     <TableContainer component={Paper}>
       <Table aria-label="collapsible table">
@@ -181,6 +163,8 @@ export default function TableList() {
             <TableCell />
             <TableCell>Date</TableCell>
             <TableCell align="right">Genre</TableCell>
+            <TableCell align="right">City</TableCell>
+            <TableCell align="right">Temperature</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>

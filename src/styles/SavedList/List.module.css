@@ -2,7 +2,7 @@
 
 
     .box{
-        background-color: blue;
+        
         width: 100vw;
         height: 100vh;
         display: flex;
@@ -14,7 +14,7 @@
 
         margin:10rem 2rem 2rem 2rem ;
         display: flex;
-        background-color: red;
+        background-color: lightgray;
         padding: 2rem;
         width: 90vw;
         height: auto;

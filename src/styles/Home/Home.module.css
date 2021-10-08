@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap");
 
 @media screen and (min-width: 0px) {
   .box {
@@ -12,34 +12,25 @@
     background-color: rgba(214, 198, 127, 0.3);
     background-blend-mode: color;
     background-repeat: no-repeat;
-    background-size:cover;
+    background-size: cover;
     background-position: right;
   }
 
   .box.rock {
-
     background-image: url("../../../public//assets//img/Rock.jpg");
-   
   }
 
   .box.pop {
-
     background-image: url("../../../public//assets//img/Pop.jpg");
-   
   }
 
   .box.classical {
-
     background-image: url("../../../public//assets//img/Classical.jpg");
-   
   }
 
   .box.lofi {
-
     background-image: url("../../../public//assets//img/LofiMob.png");
-   
   }
-
 
   .boxClimateSearch {
     border-radius: 1rem;
@@ -118,8 +109,7 @@
     align-items: center;
   }
 
-  .boxLottie{
-
+  .boxLottie {
     display: flex;
     width: 100vw;
     height: 100vh;
@@ -129,10 +119,15 @@
   }
 
   .loadText {
-
-    font-family: 'Amatic SC', cursive;
+    font-family: "Amatic SC", cursive;
     font-size: 2rem;
     padding: 1rem;
+  }
+
+  .link {
+    text-decoration: none;
+    color: rgb(238, 161, 20);
+    font-weight: bold;
   }
 }
 
@@ -148,9 +143,7 @@
   }
 
   .box.lofi {
-
     background-image: url("../../../public//assets//img/Lofi.jpg");
-   
   }
 }
 
