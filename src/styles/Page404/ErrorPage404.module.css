@@ -1,0 +1,49 @@
+@import url("https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap");
+.boxError {
+  display: flex;
+
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.boxLottie {
+  width: 20rem;
+}
+.titleError {
+  font-size: 2rem;
+  font-family: "Amatic SC", cursive;
+}
+
+.buttonError {
+    font-family: "Amatic SC", cursive;
+    font-size: 1.2rem;
+  margin: 1rem;
+  background-color: transparent;
+  color: black;
+  width: 10rem;
+  height: 2rem;
+  border-radius: 1rem;
+  cursor: pointer;
+}
+
+.buttonError:hover {
+
+    background-color: lightgray;
+}
+
+
+@media screen and (orientation:landscape) {
+
+
+    .boxError {
+        
+        margin-top: 4rem;
+        padding-bottom: 2rem;
+    } 
+
+    
+}

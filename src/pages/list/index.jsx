@@ -2,8 +2,47 @@ import Header from "../../components/Header";
 import TableList from "../../components/TableList";
 import styles from "../../styles/SavedList/List.module.css";
 import Head from "next/head";
-import { Typography } from "@mui/material";
+import Loading from "../../components/LoadingPageList";
+import { LoadingContext } from "../../contexts/Loading";
+import { useContext, useEffect } from "react";
+
 export default function List() {
+  const { loading, setLoading } = useContext(LoadingContext);
+
+  useEffect(() => {
+    setLoading(true);
+
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+  }, []);
+
+  function renderContent() {
+    if (loading) {
+      return (
+        <main className={styles.box}>
+          <div className={styles.boxTable}>
+            <h2 className={styles.title}>
+              {" "}
+              <Loading />
+            </h2>
+
+            <TableList />
+          </div>
+        </main>
+      );
+    } else {
+      return (
+        <main className={styles.box}>
+          <div className={styles.boxTable}>
+            <h2 className={styles.title}> Your List: </h2>
+            <TableList />
+          </div>
+        </main>
+      );
+    }
+  }
+
   return (
     <>
       <Head>
@@ -20,13 +59,7 @@ export default function List() {
       </Head>
       <body>
         <Header />
-
-        <main className={styles.box}>
-          <div className={styles.boxTable}>
-            <h2 className={styles.title}> Your List: </h2>
-            <TableList />
-          </div>
-        </main>
+        {renderContent()}
       </body>
     </>
   );

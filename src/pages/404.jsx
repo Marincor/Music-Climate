@@ -1,0 +1,21 @@
+import Head from 'next/head'
+import Header from '../components/Header/index'
+import ErrorPage404 from '../components/page404Error'
+
+export default function Page404() {
+    return (
+    <>
+        <Head>
+          <title>404 error</title>
+          <meta name="description" content="Get your passport and get your music list" />
+          <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
+          <body >
+                <Header />
+                <ErrorPage404 />
+          </body>
+     
+    </>
+    )
+  }

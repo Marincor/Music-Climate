@@ -7,15 +7,13 @@ import "../styles/globals.css";
 function MyApp({ Component, pageProps }) {
   return (
     <LoadingProvider>
-
-    <SearchBarProvider>
-      <WeatherProvider>
-        <MusicListProvider> 
-
-        <Component {...pageProps} />
-        </MusicListProvider>
-      </WeatherProvider>
-    </SearchBarProvider>
+      <SearchBarProvider>
+        <WeatherProvider>
+          <MusicListProvider>
+            <Component {...pageProps} />
+          </MusicListProvider>
+        </WeatherProvider>
+      </SearchBarProvider>
     </LoadingProvider>
   );
 }
