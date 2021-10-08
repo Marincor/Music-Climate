@@ -14,6 +14,7 @@ import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import { useContext, useEffect, useState } from "react";
 import { MusicListContext } from "../../contexts/MusicList";
+import style from "../../styles/SavedList/List.module.css";
 
 function createData(date, category, city, temperature, id) {
   const { savedMusicList } = useContext(MusicListContext);
@@ -64,9 +65,13 @@ function Row(props) {
     const currentRow = event.target.parentElement;
     const currentList = JSON.parse(localStorage.getItem("SAVED_LIST"));
 
-    const newList = currentList.filter((atribute) => atribute.id !== id);
+    const newList = currentList?.filter((atribute) => atribute.id !== id);
 
-    if (currentList.length === 1) {
+    if (
+      currentList?.length === 1 ||
+      currentList === null ||
+      currentList === undefined
+    ) {
       localStorage.removeItem("SAVED_LIST");
       currentRow.remove();
     } else {
@@ -90,20 +95,21 @@ function Row(props) {
         <TableCell component="th" scope="row">
           {row.date}
         </TableCell>
-        <TableCell align="right">{row.category}</TableCell>
-        <TableCell align="right">{row.city}</TableCell>
+        <TableCell align="center">{row.category}</TableCell>
+        <TableCell align="center">{row.city}</TableCell>
         <TableCell align="center">{row.temperature} °C</TableCell>
 
         {open ? (
           false
         ) : (
           <button
+            className={style.delete}
             onClick={(e) => {
               e.preventDefault();
               deleteList(row.id, e);
             }}
           >
-            x
+            🗑️
           </button>
         )}
       </TableRow>
@@ -117,8 +123,12 @@ function Row(props) {
               <Table size="small" aria-label="purchases">
                 <TableHead>
                   <TableRow>
-                    <TableCell>Artist</TableCell>
-                    <TableCell>Music</TableCell>
+                    <TableCell><Typography variant="subtitle1" gutterBottom component="h4">
+                Artist
+              </Typography></TableCell>
+                    <TableCell><Typography variant="subtitle1" gutterBottom component="h4">
+                Music
+              </Typography></TableCell>
                   </TableRow>
                 </TableHead>
                 <TableBody>{renderTable()}</TableBody>
@@ -191,14 +201,22 @@ export default function TableList() {
 
   return (
     <TableContainer component={Paper}>
-      <Table aria-label="collapsible table">
+      <Table aria-label="collapsible table" size="medium">
         <TableHead>
           <TableRow>
             <TableCell />
-            <TableCell>Date</TableCell>
-            <TableCell align="right">Genre</TableCell>
-            <TableCell align="right">City</TableCell>
-            <TableCell align="center">Temperature</TableCell>
+            <TableCell>
+              <Typography variant="h6" component="h2"> Date</Typography> </TableCell>
+            <TableCell align="center">
+            <Typography variant="h6" component="h2"> 
+            Category
+            </Typography>
+              </TableCell>
+            <TableCell align="center">
+
+            <Typography variant="h6" component="h2"> City</Typography>
+              </TableCell>
+            <TableCell align="center"><Typography variant="h6" component="h2"> Temperature</Typography></TableCell>
           </TableRow>
         </TableHead>
         <TableBody>

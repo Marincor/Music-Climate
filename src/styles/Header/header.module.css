@@ -1,28 +1,35 @@
 @import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap');
 
-.header {
+@media screen and (min-width: 0px) {
+    
+    .header {
 
-    position: fixed;
-    width: 100vw;
-    height: auto;
-    background-color: rgb(238, 161, 20);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: 'Amatic SC', cursive;
-    z-index: 2000;
-    cursor: pointer;
+        position: fixed;
+        width: 100vw;
+        height: auto;
+        background-color: rgb(238, 161, 20);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Amatic SC', cursive;
+        z-index: 2000;
+        overflow-y: auto;
+      
+    }
+    
+    .title {
+    
+        font-size: 2rem;
+        font-weight:bold;
+        margin: 1rem;
+        padding: 0.5rem;
+        cursor: pointer;
+    }
+    
+    .logo {
+    
+        width: 10rem;
+    }
 }
 
-.title {
 
-    font-size: 2rem;
-    font-weight:bold;
-    margin: 1rem;
-    padding: 0.5rem;
-}
-
-.logo {
-
-    width: 10rem;
-}

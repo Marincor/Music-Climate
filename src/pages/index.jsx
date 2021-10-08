@@ -9,9 +9,10 @@ export default function Home() {
       <Head>
         <title>Music Climate</title>
         <meta name="description" content="Get your passport and get your music list" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-        <body className={styles.body} >
+        <body >
           <Header />
           <Weather />
         </body>

@@ -39,7 +39,7 @@ export default function MusicList() {
         <> 
         <a className={styles.link} href="/list">
         <Button variant="contained" color="inherit" >
-          see list ⮡ 
+          your list ⮡ 
         </Button>
         </a>
         </>
