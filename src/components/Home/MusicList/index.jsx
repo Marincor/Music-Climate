@@ -4,7 +4,7 @@ import { MusicListContext } from "../../../contexts/MusicList";
 import { WeatherContext } from "../../../contexts/Weather";
 import styles from "../../../styles/Home/Home.module.css";
 import TableList from "./Table";
-
+import Link from 'next/link'
 
 export default function MusicList() {
   const { currentWeather } = useContext(WeatherContext);
@@ -37,11 +37,11 @@ export default function MusicList() {
         </Button>
         {""} {" - "}
         <> 
-        <a className={styles.link} href="/list">
+        <Link passHref className={styles.link} href="/list">
         <Button variant="contained" color="inherit" >
           your list ⮡ 
         </Button>
-        </a>
+        </Link>
         </>
       </div>
     </div>

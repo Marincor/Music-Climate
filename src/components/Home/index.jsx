@@ -36,7 +36,7 @@ export default function Weather() {
     }, 18000);
 
 
-  }, []);
+  }, [setLoading]);
   
 
   function renderContent() {

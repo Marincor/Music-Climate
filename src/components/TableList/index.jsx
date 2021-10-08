@@ -16,7 +16,7 @@ import { useContext, useEffect, useState } from "react";
 import { MusicListContext } from "../../contexts/MusicList";
 import style from "../../styles/SavedList/List.module.css";
 
-function createData(date, category, city, temperature, id) {
+function CreateData(date, category, city, temperature, id) {
   const { savedMusicList } = useContext(MusicListContext);
 
   const arrList = [];
@@ -186,7 +186,7 @@ export default function TableList() {
 
     currentRows.map((item) => {
       arrRows.push(
-        createData(
+        CreateData(
           item.date,
           item.category,
           item.city,

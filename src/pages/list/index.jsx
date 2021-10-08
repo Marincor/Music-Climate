@@ -20,7 +20,7 @@ export default function List() {
     setTimeout(() => {
       setLoading(false);
     }, 2000);
-  }, []);
+  }, [setLoading]);
 
   function renderContent() {
     if (loading) {
