@@ -5,9 +5,14 @@ import Head from "next/head";
 import Loading from "../../components/LoadingPageList";
 import { LoadingContext } from "../../contexts/Loading";
 import { useContext, useEffect } from "react";
+import { MusicListContext } from "../../contexts/MusicList";
+import EmptyList from "../../components/EmptyList";
 
 export default function List() {
   const { loading, setLoading } = useContext(LoadingContext);
+  const { savedMusicList} = useContext(MusicListContext)
+
+  console.log(savedMusicList)
 
   useEffect(() => {
     setLoading(true);
@@ -25,6 +30,12 @@ export default function List() {
             <h2 className={styles.title}>
               {" "}
               <Loading />
+              {savedMusicList.length === 0 ? <> 
+                <EmptyList />
+              <p> save a list to see something here </p> 
+              </> 
+              
+              : false}
             </h2>
 
             <TableList />
@@ -35,8 +46,15 @@ export default function List() {
       return (
         <main className={styles.box}>
           <div className={styles.boxTable}>
-            <h2 className={styles.title}> Your List: </h2>
+           {savedMusicList.length !== 0 ? <p>  <h2 className={styles.title}> Your List: </h2> </p> : false}
             <TableList />
+            {savedMusicList.length === 0 ? <> 
+              <EmptyList />
+              <p className={styles.empty}> save a list to see something here </p> 
+            
+            </> 
+              
+              : false}
           </div>
         </main>
       );
@@ -59,6 +77,7 @@ export default function List() {
       </Head>
       <body>
         <Header />
+        
         {renderContent()}
       </body>
     </>
