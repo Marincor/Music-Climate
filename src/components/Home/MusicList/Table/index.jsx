@@ -25,23 +25,15 @@ const rows = [
 
 export default function TableList() {
   const { musicList, genre, setGenre } = useContext(MusicListContext);
-  const { currentWeather} = useContext(WeatherContext)
+  const { currentWeather } = useContext(WeatherContext);
 
-  useEffect(()=>{
-    
+  useEffect(() => {
     const temperature = currentWeather?.temperature;
-    setGenre(changeGenre(temperature))
+    setGenre(changeGenre(temperature));
+  }, [currentWeather]);
 
 
-  },[currentWeather])
   
-      
-
-
-
-
-
-
   function renderTable() {
     if (musicList !== undefined) {
       return musicList.map((music) => {
