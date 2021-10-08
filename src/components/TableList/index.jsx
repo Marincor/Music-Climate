@@ -15,7 +15,7 @@ import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import { useContext, useEffect, useState } from "react";
 import { MusicListContext } from "../../contexts/MusicList";
 
-function createData(date, category, city, temperature) {
+function createData(date, category, city, temperature, id) {
   const { savedMusicList } = useContext(MusicListContext);
 
   const arrList = [];
@@ -33,6 +33,7 @@ function createData(date, category, city, temperature) {
     category,
     city,
     temperature,
+    id,
 
     history: [arrList],
   };
@@ -41,8 +42,6 @@ function createData(date, category, city, temperature) {
 function Row(props) {
   const { row } = props;
   const [open, setOpen] = useState(false);
-
-  console.log(row.history);
 
   function renderTable() {
     return row.history?.map((array) =>
@@ -59,6 +58,21 @@ function Row(props) {
         });
       })
     );
+  }
+
+  function deleteList(id, event) {
+    const currentRow = event.target.parentElement;
+    const currentList = JSON.parse(localStorage.getItem("SAVED_LIST"));
+
+    const newList = currentList.filter((atribute) => atribute.id !== id);
+
+    if (currentList.length === 1) {
+      localStorage.removeItem("SAVED_LIST");
+      currentRow.remove();
+    } else {
+      localStorage.setItem("SAVED_LIST", JSON.stringify(newList));
+      currentRow.remove();
+    }
   }
 
   return (
@@ -79,7 +93,19 @@ function Row(props) {
         <TableCell align="right">{row.category}</TableCell>
         <TableCell align="right">{row.city}</TableCell>
         <TableCell align="center">{row.temperature} °C</TableCell>
-        <button>x</button>
+
+        {open ? (
+          false
+        ) : (
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              deleteList(row.id, e);
+            }}
+          >
+            x
+          </button>
+        )}
       </TableRow>
       <TableRow>
         <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
@@ -127,6 +153,7 @@ export default function TableList() {
   const [currentRows, setCurrentRows] = useState([]);
 
   const { savedMusicList } = useContext(MusicListContext);
+
   useEffect(() => {
     const arrRows = currentRows || [];
     savedMusicList.map((item) => {
@@ -135,6 +162,7 @@ export default function TableList() {
         category: item.category,
         city: item.city,
         temperature: item.temperature,
+        id: item.id,
       };
 
       arrRows.push(objRows);
@@ -148,7 +176,13 @@ export default function TableList() {
 
     currentRows.map((item) => {
       arrRows.push(
-        createData(item.date, item.category, item.city, item.temperature)
+        createData(
+          item.date,
+          item.category,
+          item.city,
+          item.temperature,
+          item.id
+        )
       );
     });
 
@@ -164,7 +198,7 @@ export default function TableList() {
             <TableCell>Date</TableCell>
             <TableCell align="right">Genre</TableCell>
             <TableCell align="right">City</TableCell>
-            <TableCell align="right">Temperature</TableCell>
+            <TableCell align="center">Temperature</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>

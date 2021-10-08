@@ -19,7 +19,7 @@ export default function MusicList() {
       temperature: currentWeather?.temperature,
       city: currentWeather?.city,
       category: genre,
-      id: Math.round(Math.round() * 4568),
+      id: Math.round(Math.random() * 4568),
     };
 
     arr.push(obj);
@@ -39,7 +39,7 @@ export default function MusicList() {
         <> 
         <a className={styles.link} href="/list">
         <Button variant="contained" color="inherit" >
-          go the list ⮡ 
+          see list ⮡ 
         </Button>
         </a>
         </>
