@@ -17,8 +17,7 @@ export default function Weather() {
   const { loading, setLoading } = useContext(LoadingContext);
 
   useEffect(() => {
-    setLoading(true);
-
+  
     setTimeout(() => {
       setLoading("cities");
     }, 4000);
