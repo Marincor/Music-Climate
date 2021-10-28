@@ -3,10 +3,15 @@ import Music from "../../../public/assets/img/music.svg";
 import styles from "../../styles/Header/header.module.css";
 import Image from "next/image";
 import Link from "next/link";
+import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function Header() {
   return (
     <header className={styles.header}>
+       <div>
+        <ToastContainer />
+      </div>
         <Image
           src={Music}
           alt="music-icon"

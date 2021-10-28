@@ -15,9 +15,12 @@ import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import { useContext, useEffect, useState } from "react";
 import { MusicListContext } from "../../contexts/MusicList";
 import style from "../../styles/SavedList/List.module.css";
+import { toast } from 'react-toastify';
 
 function CreateData(date, category, city, temperature, id) {
   const { savedMusicList } = useContext(MusicListContext);
+
+
 
   const arrList = [];
 
@@ -59,13 +62,16 @@ function Row(props) {
         });
       })
     );
-  }
+  } 
+  
+  const notify = () => toast.success("Your list has been deleted!");
 
   function deleteList(id, event) {
     const currentRow = event.target.parentElement;
     const currentList = JSON.parse(localStorage.getItem("SAVED_LIST"));
 
     const newList = currentList?.filter((atribute) => atribute.id !== id);
+    
 
     if (
       currentList?.length === 1 ||
@@ -74,9 +80,11 @@ function Row(props) {
     ) {
       localStorage.removeItem("SAVED_LIST");
       currentRow.remove();
+      notify();
     } else {
       localStorage.setItem("SAVED_LIST", JSON.stringify(newList));
       currentRow.remove();
+      notify();
     }
   }
 
