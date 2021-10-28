@@ -54,9 +54,10 @@ Encontre a melhor lista de músicas com base na temperatura da cidade escolhida.
 
 > Complementar:
 
-  <img  width='100px' src='https://user-images.githubusercontent.com/84210050/132045800-c876540d-b0ce-495f-9898-7bf26963b111.png' alt='reactLottie-logo'/>  <img  width='50px' src='https://cdn.worldvectorlogo.com/logos/material-ui-1.svg' alt='Material-ui-logo'/> 
+  <img  width='100px' src='https://user-images.githubusercontent.com/84210050/132045800-c876540d-b0ce-495f-9898-7bf26963b111.png' alt='reactLottie-logo'/>  <img  width='50px' src='https://cdn.worldvectorlogo.com/logos/material-ui-1.svg' alt='Material-ui-logo'/> <img  width='50px' src='https://user-images.githubusercontent.com/84210050/132046319-c224eaff-718c-4baf-9a7f-a8147d27914c.png' alt='react-Toastify'/> 
  
  
--  React Lottie /  Material-UI / 
+ 
+-  React Lottie /  Material-UI / React-Toastify
 
 
