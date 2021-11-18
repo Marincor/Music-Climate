@@ -1,9 +1,9 @@
-# Music Climate
+# ♫ Music Climate ☀️ 
 > uma playlist personalizada para onde quer que você esteja de acordo com a temperatura do local
 
 
-<a href="https://github.com/Marincor/Music-Climate/#Responsividade"> Responsividade </a> | <a href="https://github.com/Marincor/Music-Climate/#Aplicação"> Aplicação </a> | 
-<a href="https://github.com/Marincor/Music-Climate/#Sobre"> Sobre </a> | <a href="https://github.com/Marincor/Music-Climate/#Funcionalidades"> Funcionalidades </a> | <a href="https://github.com/Marincor/Music-Climate/#tecnologias-usadas"> Tecnologias usadas </a> 
+<a href="https://github.com/Marincor/Music-Climate/#-Responsividade"> Responsividade </a> | <a href="https://github.com/Marincor/Music-Climate/#-Aplicação"> Aplicação </a> | 
+<a href="https://github.com/Marincor/Music-Climate/#-Sobre"> Sobre </a> | <a href="https://github.com/Marincor/Music-Climate/#-Funcionalidades"> Funcionalidades </a> | <a href="https://github.com/Marincor/Music-Climate/#-tecnologias-usadas"> Tecnologias usadas </a> 
 
 
 <hr/>
@@ -11,16 +11,16 @@
 ![image](https://user-images.githubusercontent.com/84210050/136602128-40fd09e2-45ab-494c-87df-d47c04c29276.png)
 ![image](https://user-images.githubusercontent.com/84210050/136602184-60ada10f-79fc-4ec2-a827-0e9e50e2e3c3.png)
 
-# Responsividade
+# 📱 Responsividade
 
 ![musicClimate responsivity](https://user-images.githubusercontent.com/84210050/136602612-2c990bef-dd2e-448a-9796-77a8a48f05ca.gif)
 
 
-# Aplicação
+# 🏠 Aplicação
 
 https://music-climate.vercel.app/
 
-# Sobre
+# 🛈 Sobre
 
 Encontre a melhor lista de músicas com base na temperatura da cidade escolhida. Para essa aplicação foram consumidas as API's da <a href="https://rapidapi.com/apishub/api/yahoo-weather5/"> Yahoo Weather </a> para a temperatura e a do <a href="https://www.last.fm/pt/api"> LastFm </a> para as músicas.
 
@@ -32,7 +32,7 @@ Encontre a melhor lista de músicas com base na temperatura da cidade escolhida.
 
 4º feedbacks são bem-vindos :)
 
-# Funcionalidades:
+# 💡 Funcionalidades:
 
 - Temperatura da cidade escolhida;
 - Data da Busca;
@@ -41,7 +41,7 @@ Encontre a melhor lista de músicas com base na temperatura da cidade escolhida.
 - Visualização das listas salvas por data, gênero, cidade e temperatura,
 - Exclusão de listas salvas.
 
-# Tecnologias usadas:
+# 🚀 Tecnologias usadas:
 
 > Base:
 
